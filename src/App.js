@@ -26,29 +26,88 @@ export default class App extends Lightning.Component {
 
   static _template() {
     return {
+      // Video: {
+      //   rect: true,
+      //   w: 960,
+      //   h: 720,
+      //   x: 960,
+      //   y: 540,
+      //   mount: .5,
+      //   color: 0xffff0000
+      // },
       Background: {
         rect: true,
         w: 1920,
         h: 1080,
         color: 0xfffbb03b,
-        // color: 0xffff0000,
       },
+      // Window: {
+      //   rect: true,
+      //   w: 960,
+      //   h: 720,
+      //   x: 960,
+      //   y: 540,
+      //   color:0xCCff00ff,
+      //   radius:50,
+      //   shader: {
+      //     type: Lightning.shaders.Hole,
+      //     w: 760,
+      //     h: 220,
+      //     x: 960,
+      //     y: 540,
+      //     color:0xAAff00ff,
+      //     radius:[5]
+      //   }
+      // },
       Square: {
         rect: true,
         w: 100,
         h: 100,
         y: 540,
-        color: 0xffff0000,
-        transitions: {
-          x: {
-            duration: 3,
-            timingFunction: 'linear',
-          },
-          color: {
-            duration: 3,
-            delay: 3,
-          },
+        color: 0xffff00ff,
+        shader: {
+          type: Lightning.shaders.Hole,
+          w: 760,
+          h: 220,
+          x: 960,
+          y: 540,
+          // color:0xAAff00ff,
+          // radius:[5]
         },
+        // transitions: {
+        //   x: {
+        //     duration: 3,
+        //     timingFunction: 'linear',
+        //   },
+        //   color: {
+        //     duration: 3,
+        //     delay: 3,
+        //   },
+        // },
+      },
+      Circle: {
+        rect: true,
+        w: 100,
+        h: 100,
+        y: 540,
+        color: 0xffff0000,
+        shader: {
+          type: Lightning.shaders.RoundedRectangle,
+          radius: [50, 50, 50, 50], //[tl,tr.br,bl]
+
+          timingFunction: 'linear',
+          duration: 3,
+        },
+        // transitions: {
+        //   x: {
+        //     duration: 3,
+        //     timingFunction: 'linear',
+        //   },
+        //   color: {
+        //     duration: 3,
+        //     delay: 3,
+        //   },
+        // },
       },
     }
   }
@@ -56,6 +115,13 @@ export default class App extends Lightning.Component {
     this.tag('Square').patch({
       smooth: {
         x: 1820,
+        color: 0xff0000ff,
+      },
+    })
+    this.tag('Circle').patch({
+      smooth: {
+        x: 1820,
+        y: 0,
         color: 0xff0000ff,
       },
     })
