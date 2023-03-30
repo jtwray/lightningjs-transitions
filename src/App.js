@@ -37,6 +37,15 @@ export default class App extends Lightning.Component {
         H: 100,
         y: 540,
         color: 0xffff0000,
+        transitions: {
+          x: {
+            duration: 3,
+            timingFunction: 'linear',
+          },
+          color: {
+            duration: 3,
+          },
+        },
       },
     }
   }
