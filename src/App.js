@@ -27,14 +27,16 @@ export default class App extends Lightning.Component {
   static _template() {
     return {
       Background: {
+        rect: true,
         w: 1920,
         h: 1080,
         color: 0xfffbb03b,
+        // color: 0xffff0000,
       },
       Square: {
         rect: true,
-        W: 100,
-        H: 100,
+        w: 100,
+        h: 100,
         y: 540,
         color: 0xffff0000,
         transitions: {
@@ -44,9 +46,18 @@ export default class App extends Lightning.Component {
           },
           color: {
             duration: 3,
+            delay: 3,
           },
         },
       },
     }
+  }
+  _handleEnter() {
+    this.tag('Square').patch({
+      smooth: {
+        x: 1820,
+        color: 0xff0000ff,
+      },
+    })
   }
 }
